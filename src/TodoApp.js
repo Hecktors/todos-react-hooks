@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Typography, Paper, AppBar, Toolbar, Grid } from '@material-ui/core'
 import { v4 as uuid } from 'uuid'
 import TodoList from './TodoList'
-import TodoForm from './TodoForm'
+import TodoFormNew from './TodoFormNew'
 
 function TodoApp() {
   const initialTodos = [
@@ -12,15 +12,17 @@ function TodoApp() {
   ]
   const [todos, setTodos] = useState(initialTodos)
 
-  const addTodo = task => {
-    setTodos([...todos, { id: uuid(), task, completed: false }])
-  }
+  const addTodo = task => setTodos([...todos, { id: uuid(), task, completed: false }])
 
   const toggleTodo = (id) => {
     setTodos(todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo))
   }
 
   const deleteTodo = (id) => setTodos(todos.filter(todo => todo.id !== id))
+
+  const updateTodo = (id, task) => {
+    setTodos(todos.map(todo => todo.id === id ? { ...todo, task } : todo))
+  }
 
   return (
     <div>
@@ -44,8 +46,9 @@ function TodoApp() {
               todos={todos}
               toggleTodo={toggleTodo}
               deleteTodo={deleteTodo}
+              updateTodo={updateTodo}
             />
-            <TodoForm addTodo={addTodo} />
+            <TodoFormNew addTodo={addTodo} />
           </Grid>
         </Grid>
       </Paper>

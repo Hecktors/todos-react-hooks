@@ -1,8 +1,8 @@
 import React from 'react'
 import { Paper, TextField } from '@material-ui/core'
-import { useInputState } from './hooks/useInputState'
+import { useInputState } from './customHooks'
 
-function TodoForm({ addTodo }) {
+function TodoFormNew({ addTodo }) {
   const [value, handleChange, reset] = useInputState()
 
   const handleSubmit = (e) => {
@@ -25,4 +25,4 @@ function TodoForm({ addTodo }) {
   )
 }
 
-export default TodoForm
+export default TodoFormNew
