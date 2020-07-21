@@ -10,13 +10,12 @@ import {
 import { Delete, Edit } from '@material-ui/icons'
 
 
-function Todo({ todo, handleCheck, handleDelete }) {
-  const { id, task, completed } = todo
+function Todo({ id, task, completed, toggleTodo, deleteTodo }) {
   return (
     <>
       <ListItem >
         <Checkbox
-          onChange={() => handleCheck(id)}
+          onChange={() => toggleTodo(id)}
           checked={completed}
           tabIndex={-1}
         />
@@ -24,10 +23,10 @@ function Todo({ todo, handleCheck, handleDelete }) {
           {task}
         </ListItemText>
         <ListItemSecondaryAction >
-          <IconButton onClick={() => handleDelete(id)} aria-label="Delete">
+          <IconButton onClick={() => deleteTodo(id)} aria-label="Delete">
             <Delete />
           </IconButton>
-          <IconButton onClick={() => handleDelete(id)} aria-label="Edit">
+          <IconButton onClick={() => deleteTodo(id)} aria-label="Edit">
             <Edit />
           </IconButton>
         </ListItemSecondaryAction>

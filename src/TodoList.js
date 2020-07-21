@@ -3,16 +3,16 @@ import { Paper, List } from '@material-ui/core'
 
 import Todo from './Todo'
 
-function TodoList({ todos, toggleCompleted, deleteTodo }) {
+function TodoList({ todos, toggleTodo, deleteTodo }) {
   return (
     <Paper>
       <List>
         {
           todos.map(todo => <Todo
             key={todo.id}
-            todo={todo}
-            handleCheck={toggleCompleted}
-            handleDelete={deleteTodo}
+            {...todo}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
           />)
         }
       </List>
