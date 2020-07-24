@@ -3,7 +3,6 @@ import { useToggleState } from './customHooks'
 import {
   ListItem,
   ListItemText,
-  // Divider,
   Checkbox,
   IconButton,
   ListItemSecondaryAction
@@ -16,7 +15,7 @@ function Todo({ id, task, completed, toggleTodo, deleteTodo, updateTodo }) {
 
   return (
     <>
-      <ListItem >
+      <ListItem style={{ height: "64px" }}>
         {isEditing
           ? <TodoFormEdit task={task} id={id} updateTodo={updateTodo} setIsEditing={setIsEditing} />
           :
@@ -40,7 +39,6 @@ function Todo({ id, task, completed, toggleTodo, deleteTodo, updateTodo }) {
           </>
         }
       </ListItem>
-      {/* <Divider /> */}
     </>
   )
 }

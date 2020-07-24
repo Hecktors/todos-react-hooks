@@ -12,12 +12,13 @@ function TodoEditForm({ id, task, updateTodo, setIsEditing }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ padding: "0 1rem" }}>
+    <form onSubmit={handleSubmit} style={{ marginLeft: "1rem", width: "65%" }}>
       < TextField
         value={editTask}
         onChange={handleChange}
         margin="normal"
         fullWidth
+        autoFocus
       />
     </form>
   )
